@@ -1,5 +1,20 @@
 .App {
+  display: flex;
   text-align: center;
+  height: 100vh;
+  background-color: rgb(240, 235, 186) ;
+  align-items: center;
+  justify-content: center;
+}
+
+.App2 {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgb(240, 235, 186) ;
+  align-items: center;
+  justify-content: start;
 }
 
 .App-logo {
@@ -35,4 +50,77 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.LoginBlock {
+  display: flex;
+  flex-direction: column;
+  background-color: #7c8392;
+  width: 60vh;
+  height: 30vh;
+  align-items: center;
+  justify-content: start;
+  box-shadow: 2px 1px 1px black;
+}
+
+.Header {
+  display : flex;
+  margin-top: 10px;
+  font-size: 30px;
+  color : whitesmoke;
+
+}
+
+.InputLayout {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin: 20px;
+  row-gap: 10px;
+}
+
+.Identify {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+.HeaderProgram {
+  display: flex;
+  margin: 30px;
+} 
+
+.MainContainer {
+  display: flex;
+  width: 80vh;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.GridHeadline {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.HeadlineBlock {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.HeaderPatient{
+  display : grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.HeaderPatientblock{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  border: #282c34 10px;
+  border-radius: 5px;
 }

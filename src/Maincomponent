@@ -1,0 +1,240 @@
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import { withTranslation } from 'react-i18next';
+import { useRecoilState, useRecoilValue } from 'recoil';
+
+import authenState from '@/store/authen/state';
+import { authenActions, authenSelectors } from '@/store/authen';
+
+import Navbar from './Navbar';
+import Login from '../views/Login';
+import HomeView from '@/views/HomeView';
+import Profile from '@/views/Profile';
+import PickingView from '@/views/PickingView';
+import PackingView from '@/views/PackingView';
+import PackingView2 from '@/views/PackingView2';
+import BarCodeGenerator from '@/views/BarCodeGenerator';
+import WatchVideo from '@/views/WatchVideo';
+import Shipping from '@/views/Shipping';
+import Checker from '@/views/Checker';
+import SearchProductView from '@/views/SearchProductView';
+import Dashboard from '@/views/Dashboard';
+import DashboardBefore from '@/views/DashboardBefore';
+import SearchProductlocation from '@/views/SearchProductlocation';
+import TransferPalletBox from '@/views/TransferPalletBox';
+import UserManagement from '@/views/UserManagement';
+import CreateAccount from '@/views/CreateAccount';
+import GoodsInspection from '@/views/GoodsInspection';
+import ProductInformation from '@/components/ProductInformation';
+import AdjustStock from '@/views/AdjustStock';
+import ShippingFullScreen from '@/components/ShippingFullScreen';
+import AddNewProductObject from '@/views/AddNewProductObjectView';
+import TranferSelectedProduct from '@/views/TransferSelectedProduct';
+import ReceiveProducts1 from '@/views/ReceiveProducts/ReceiveProducts1';
+import ReceiveProducts2 from '@/views/ReceiveProducts/ReceiveProducts2';
+import ReceivingSummary from '@/views/ReceiveProducts/ReceivingSummary';
+import ReceivingPutAway from '@/views/ReceiveProducts/ReceivingPutAway';
+import ReceivingOverview from '@/views/ReceiveProducts/ReceivingOverview';
+import ReceiveProductsQC from '@/views/ReceiveProducts/ReceiveQC';
+import ProductInformation2 from '@/components/ProductInformation2';
+import ProductAmount from '@/views/ProductAmount';
+import ReceivingSupplier from '@/views/ReceiveProducts/ReceivingSupplier';
+import AddSupplierEDIT from '@/components/AddSupplierEDIT';
+import CreateReceive from '@/components/CreateReceive';
+import AddSupplier2 from '@/components/AddSupplier2';
+import ReceivingProblem from '@/views/ReceiveProducts/ReceivingProblem';
+import EditSupplier from '@/components/EditSupplier';
+import ReceivingSupplier2 from '@/views/ReceiveProducts/ReceivingSupplier2';
+import ReceivingQCSupplier from '@/views/ReceiveProducts/ReceivingQCSupplier';
+import HandlingProduct from '@/views_test/HandlingProduct';
+import TransferBulkProduct from '@/views/TransferBulkProduct';
+import ReceiveAdmin from '@/views/ReceiveProducts/ReceiveAdmin';
+
+const MainComponentContainer = styled.div`
+  margin: 0px;
+`;
+
+const MainComponent = () => {
+  const [authen, setAuthen] = useRecoilState(authenState);
+
+  useEffect(() => {
+    authenActions.autoLogin(authen, setAuthen);
+  }, []);
+
+  const isLoggedIn = useRecoilValue(authenSelectors.isLoggedIn);
+
+  return (
+    <MainComponentContainer>
+      {isLoggedIn ? (
+        <div>
+          <Navbar />
+          <Routes>
+            <Route path="/">
+              <Route index element={<HomeView />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="picking" element={<PickingView />} />
+              <Route path="packing" element={<PackingView />} />
+              <Route path="packing2" element={<PackingView2 />} />
+              <Route path="barcode_generator" element={<BarCodeGenerator />} />
+              <Route path="WatchVideo" element={<WatchVideo />} />
+              <Route path="shipping" element={<Shipping />} />
+              <Route path="ShippingFullScreen" element={<ShippingFullScreen />} />
+              <Route path="Checker" element={<Checker />} />
+              <Route path="search_product" element={<SearchProductView />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="dashboardbefore" element={<DashboardBefore />} />
+              <Route
+                path="SearchProductlocation"
+                element={<SearchProductlocation />}
+              />
+              <Route path="transfer" element={<TransferPalletBox />} />
+              <Route
+                path="transfer_selected_product/:sku"
+                element={<TranferSelectedProduct t={undefined} i18n={undefined} tReady={false} />}
+              />
+              <Route path="user_management" element={<UserManagement />} />
+              <Route path="CreateAccount" element={<CreateAccount />} />
+
+              <Route
+                path="product_Information/:sku"
+                element={<ProductInformation />}
+              />
+
+              <Route
+                path="product_Information2/:sku"
+                element={<ProductInformation2 />}
+              />
+
+              <Route
+                path="GoodsInspection"
+                element={<GoodsInspection />}
+              />
+
+              <Route
+                path="GoodsInspection/:sku"
+                element={<GoodsInspection />}
+              />
+
+              <Route path="AdjustStock/:sku" element={<AdjustStock />} />
+
+              <Route
+                path="add_new_product_object"
+                element={<AddNewProductObject />}
+              />
+
+              <Route
+                path="ReceivingSummary/:receivedLot"
+                element={<ReceivingSummary />}
+              />
+
+              <Route
+                path="ReceivingPutAway"
+                element={<ReceivingPutAway />}
+              />
+
+              <Route
+                path="ReceiveProducts1"
+                element={<ReceiveProducts1 />}
+              />
+
+              <Route
+                path="ReceiveProducts2/:lot"
+                element={<ReceiveProducts2 />}
+              />
+
+              <Route
+                path="/ReceivingOverview/:receivedLot"
+                element={<ReceivingOverview />}
+              />
+
+              <Route
+                path="ReceivingSupplier"
+                element={<ReceivingSupplier />}
+              />
+
+              <Route
+                path="ReceivingSupplier2"
+                element={<ReceivingSupplier2 data={(data) => (data)} />}
+              />
+
+              <Route
+                path="ReceiveProductsQC/:receivedLot"
+                element={<ReceiveProductsQC />}
+              />
+
+              <Route
+                path="AddSupplierEDIT"
+                element={<AddSupplierEDIT />}
+              />
+
+              <Route
+                path="ProductAmount"
+                element={<ProductAmount />}
+              />
+
+              {/* <Route
+                path="ReceivingSupplier"
+                element={<ReceivingSupplier />}
+              /> */}
+
+              <Route
+                path="CreateReceive"
+                element={<CreateReceive />}
+              />
+
+              <Route
+                path="CreateReceive/:lot"
+                element={<CreateReceive />}
+              />
+
+              <Route
+                path="ReceivingProblem"
+                element={<ReceivingProblem />}
+              />
+
+              <Route
+                path="AddSupplier2"
+                element={<AddSupplier2 onAddSupplier={(data) => (data)} />}
+              />
+
+              <Route
+                path="/EditSupplier/:index"
+                element={<EditSupplier />}
+              />
+
+              <Route
+                path="/ReceivingSupplier/:supplier_name"
+                element={<ReceivingSupplier />}
+              />
+
+              <Route
+                path="/ReceivingQCSupplier/:receivedLot/:SupplierName"
+                element={<ReceivingQCSupplier />}
+              />
+
+              <Route
+                path="HandlingProduct"
+                element={<HandlingProduct />}
+              />
+
+              <Route
+                path="TransferBulkProduct"
+                element={<TransferBulkProduct t={undefined} i18n={undefined} tReady={false} />}
+              />
+
+              <Route
+                path="/ReceiveAdmin/:receivedLot"
+                element={<ReceiveAdmin />}
+              />
+            </Route>
+          </Routes>
+        </div>
+      ) : (
+        <Login />
+      )}
+    </MainComponentContainer>
+  );
+};
+
+export default withTranslation()(MainComponent);

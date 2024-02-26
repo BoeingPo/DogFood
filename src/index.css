@@ -1,13 +1,39 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+
+/* @font-face {
+  font-family: 'Thai Sarabun';
+  src: url('path/to/thai-sarabun.woff2') format('woff2'),
+       url('path/to/thai-sarabun.woff') format('woff');
+  /* Add more formats if necessary 
+} */
+
+@font-face {
+  font-family: 'FCMinimal';
+  src: url('./fonts/FC Minimal Regular.ttf') format('truetype'),
+       url('./fonts/FC Minimal Regular.otf') format('opentype');
+  /* Add additional font formats if necessary */
+  font-weight: normal;
+  font-style: normal;
+}
+code {
+  font-family: 'FCMinimal',sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.Background{
+  background-color: antiquewhite;
+}
+
+body {
+  font-family: 'FCMinimal', sans-serif;
+}
+
+h1, h2, h3, p {
+  font-family: 'FCMinimal', sans-serif;
 }
