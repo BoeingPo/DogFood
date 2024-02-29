@@ -14,7 +14,7 @@ const Viewport = styled.div`
 const About = () => {
 
     const DownloadPDF = () => {
-        window.location.href = 'https://drive.google.com/uc?export=download&id=1-uuIUEdeADkL3Lem2we-ct7-97VdDvGf';
+        window.location.href = 'https://drive.google.com/uc?export=download&id=1z4Nlc7-9bZ_zcGLDHi_Q1_kjepq8on3g';
     };
 
     return (
