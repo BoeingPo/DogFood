@@ -91,6 +91,7 @@ const IdentityBio = () => {
     const [FoodME, setFoodME] = useState(0);
     const [Disablebutton, isDisablebutton] = useState(true);
     const [ShowBCS, isShowBCS] = useState(false);
+    const [ShowMEDetail,isShowMEDetail] = useState(false);
 
     const weighthandleInputChange = (value: any) => {
         const intvalue = parseFloat(value);
@@ -193,15 +194,27 @@ const IdentityBio = () => {
                     <img src={BCSImage} alt="DogBCS" width="310" height="239" />
                 </div>}
                 <FormMinorContainer>
+                    <div style={{display:'flex',flexDirection:'column'}}>
                     <MinorBox>
                         Food ME (kcal/g.)
                     </MinorBox>
+                    <div style={{display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'10px'}}>ดูข้างบรรจุภัณฑ์</div>
+                    </div>
                     <div>
                         <InputBox
                             type="number"
                             onChange={(e) => FoodMEthandleInputChange(e.target.value)}
                         ></InputBox>
                     </div>
+                    <div style={{display:'flex',flexDirection:'row'}}>
+                        <CircleButton style={{marginRight:'10px'}}
+                            onClick={() => { isShowMEDetail(!ShowMEDetail) }}
+                        ></CircleButton>
+                        คลิกคำอธิบาย Food ME
+                        </div>
+                    {ShowMEDetail && <div style={{fontSize:'14px',padding:'10px 20px 10px 20px',marginTop:'10px',backgroundColor:'#F7F6CF',borderRadius:'10px'}}>
+                        Food ME หรือ Food Metabolizable Energy คือพลังงานที่สัตว์นำไปใช้ได้ เช่น 350 kcal/100g หรือ 3.5 kcal/g.
+                        </div>}
                 </FormMinorContainer>
             </FormContainer>
             <SubButton
