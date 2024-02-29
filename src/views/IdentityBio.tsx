@@ -181,9 +181,11 @@ const IdentityBio = () => {
                         ></InputBox>
                     </div>
                     <GridPicture>
+                        <div>
                         <CircleButton
                             onClick={() => { isShowBCS(!ShowBCS) }}
                         ></CircleButton>
+                        </div>
                          <div>คลิกเพื่อแสดงภาพการเปรียบเทียบ BCS</div>
                     </GridPicture>
                 </FormMinorContainer>

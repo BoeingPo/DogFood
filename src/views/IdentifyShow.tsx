@@ -12,7 +12,7 @@ const ViewWarp = styled.div`
 
 const FormContainer = styled.div`
     display : grid;
-    grid-template-rows : 20vh 20vh 20vh;    
+    grid-template-rows : 14vh 14vh 14vh;    
     margin : 20px;
 `
 
@@ -61,8 +61,21 @@ const OutputData = styled.div`
     width : 150px;
 `;
 
+const OutputResultData =styled.div`
+    display : flex;
+    background-color : #FBEDBE;
+    border-bottom: solid 2px black;
+    align-items : center;
+    justify-content : center;
+    width : 80px;
+    padding : 10px 0px 10px 0px;
+    font-size : 24px;
+    border-radius : 10px 10px 0px 0px;
+`;
+
 const ResultData = styled.div`
     display : flex;
+    flex-direction : column;
     margin-top: 20px;
 `;
 
@@ -82,9 +95,11 @@ const InfoName = styled.div`
 
 const FoodQuality = styled.div`
     display : flex;
+    flex-direction : row;
     width:100px;
     justify-content: space-between;
-    font-size : 24px;
+    font-size : 21.5px;
+    font-weight : 580;
 `;
 
 const Grid_minor_top = styled.div`
@@ -102,6 +117,7 @@ const IdentityShow = () => {
     const DER = (RERx * (1.4)).toFixed(3);
     const DERx = (RERx * (1.4));
     const FoodQU = (DERx / (InfoData2.ValueData.FoodME)).toFixed(3);
+    const TagetWeight = InfoData2.ValueData.weight*(100/(100+(InfoData2.ValueData.BCS-5)*10));
 
     console.log('InfoData2', InfoData2)
 
@@ -137,7 +153,7 @@ const IdentityShow = () => {
                         </MinorSubdata>
                     </MinorBox>
                     <MinorBox>
-                        <OutputData>
+                        <OutputData style={{fontSize:'19px'}}>
                             {MER}
                         </OutputData>
                     </MinorBox>
@@ -153,7 +169,7 @@ const IdentityShow = () => {
                         </MinorSubdata>
                     </MinorBox>
                     <MinorBox>
-                        <OutputData>
+                        <OutputData style={{fontSize:'19px'}}>
                             {RER}
                         </OutputData>
                     </MinorBox>
@@ -169,7 +185,7 @@ const IdentityShow = () => {
                         </MinorSubdata>
                     </MinorBox>
                     <MinorBox>
-                        <OutputData>
+                        <OutputData style={{fontSize:'19px'}}>
                             {DER}
                         </OutputData>
                     </MinorBox>
@@ -179,11 +195,39 @@ const IdentityShow = () => {
                 </FormMinorContainer>
             </FormContainer>
             <ResultData>
-                <FormMinorContainer>
+                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gridTemplateRows:'1fr 1fr',gap:'1.5em',padding : '32px',backgroundColor:'#F7F6CF',borderRadius:'20px'}}>
                     <MinorBox>
-                        {/* <div style={{fontSize: '24px',display:"flex",justifyContent:"center",width:100,justifyItems:'space-between'}}> */}
                         <FoodQuality>
-                            <div>Food</div> <div>Quality</div>
+                            Food Quantity
+                        </FoodQuality>
+                    </MinorBox>
+                    <MinorBox>
+                        <OutputResultData>
+                            {FoodQU}
+                        </OutputResultData>
+                    </MinorBox>
+                    <MinorBox style={{fontSize:'21.5px'}}>
+                        g./Day
+                    </MinorBox>
+                    <MinorBox>
+                        <FoodQuality>
+                            Target weight
+                        </FoodQuality>
+                    </MinorBox>
+                    <MinorBox>
+                        <OutputResultData>
+                            {TagetWeight.toFixed(3)}
+                        </OutputResultData>
+                    </MinorBox>
+                    <MinorBox style={{fontSize:'21.5px'}}>
+                        kg.
+                    </MinorBox>
+
+                </div>
+                {/* <FormMinorContainer>
+                    <MinorBox>
+                        <FoodQuality>
+                            Food Quantity
                         </FoodQuality>
                     </MinorBox>
                     <MinorBox>
@@ -195,6 +239,22 @@ const IdentityShow = () => {
                         g./Day
                     </MinorBox>
                 </FormMinorContainer>
+                <FormMinorContainer>
+                    <MinorBox>
+            
+                        <FoodQuality>
+                            Target weight
+                        </FoodQuality>
+                    </MinorBox>
+                    <MinorBox>
+                        <OutputData style={{ backgroundColor: '#FFFACD' }}>
+                            {FoodQU}
+                        </OutputData>
+                    </MinorBox>
+                    <MinorBox>
+                        kg
+                    </MinorBox>
+                </FormMinorContainer> */}
             </ResultData>
         </ViewWarp>
     );
