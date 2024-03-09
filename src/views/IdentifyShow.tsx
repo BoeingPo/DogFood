@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
@@ -111,13 +111,16 @@ const IdentityShow = () => {
     const location = useLocation();
     const InfoData2 = location.state && location.state.InfoData2;
 
-    const MER = (140 * ((InfoData2.ValueData.weight) ** 0.75)).toFixed(3);
+    //const MER = (140 * ((InfoData2.ValueData.weight) ** 0.75)).toFixed(3);
     const RERx = (70 * ((InfoData2.ValueData.weight) ** 0.75));
+    const MER = (RERx*InfoData2.ValueData.factor).toFixed(3);
     const RER = (70 * ((InfoData2.ValueData.weight) ** 0.75)).toFixed(3);
     const DER = (RERx * (1.4)).toFixed(3);
     const DERx = (RERx * (1.4));
     const FoodQU = (DERx / (InfoData2.ValueData.FoodME)).toFixed(3);
     const TagetWeight = InfoData2.ValueData.weight*(100/(100+(InfoData2.ValueData.BCS-5)*10));
+    const Bodyfatx = InfoData2.ValueData.BCS*4.7263;
+    const IdealWeight = (InfoData2.ValueData.weight*((1-(0.01*Bodyfatx))/0.8)).toFixed(3);
 
     console.log('InfoData2', InfoData2)
 
@@ -193,6 +196,21 @@ const IdentityShow = () => {
                         Kcal/Day
                     </MinorBox>
                 </FormMinorContainer>
+                <FormMinorContainer>
+                    <MinorBox>
+                        <MinorSubdata>
+                            <div style={{ fontSize: '24px' }}>Ideal Weight</div>
+                        </MinorSubdata>
+                    </MinorBox>
+                    <MinorBox>
+                        <OutputData style={{fontSize:'19px'}}>
+                            {IdealWeight}
+                        </OutputData>
+                    </MinorBox>
+                    <MinorBox style={{width:'47.825px'}}>
+                        kg.
+                    </MinorBox>
+                </FormMinorContainer>
             </FormContainer>
             <ResultData>
                 <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gridTemplateRows:'1fr 1fr',gap:'1.5em',padding : '32px',backgroundColor:'#F7F6CF',borderRadius:'20px'}}>
@@ -211,7 +229,7 @@ const IdentityShow = () => {
                     </MinorBox>
                     <MinorBox>
                         <FoodQuality>
-                            Target weight
+                            Target Weight
                         </FoodQuality>
                     </MinorBox>
                     <MinorBox>
