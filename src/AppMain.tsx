@@ -2,6 +2,8 @@ import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import styled from "styled-components";
+import Corgi from './Pictures/corgi.jpg'
+import corgipal from './Pictures/corgipal.jpg'
 
 const Viewport = styled.div`
     display : flex;
@@ -30,12 +32,16 @@ const AppMain = () => {
     const navigate = useNavigate();
 
 
-    return(
+    return (
         <Viewport>
-            <h1 style={{ marginTop: 100 , textAlign: "center", fontSize : 30 }}>Calculating the energy of dog food for good health Nutrient Program</h1>
-            <SubButton
-            onClick={()=>{navigate('/Calculate')}}
-        >Start</SubButton>
+            <div style={{position:'absolute'}}>
+                <img src={corgipal} alt="corgipal" width="100%" height="100%"/>
+            </div>
+            <h1 style={{position:'relative', marginTop: 60, textAlign: "center", fontSize: 36 }}>Calculating the energy of dog food for good health Nutrient Program</h1>
+            <h1 style={{position:'relative', marginTop: -20, textAlign: "center", fontSize: 15 }}>โปรแกรมคำนวณพลังงานอาหารเพื่อดูแลสุขภาพสุนัข</h1>
+            <SubButton style={{position:'relative',marginTop:313}}
+                onClick={() => { navigate('/Calculate') }}
+            >Start</SubButton>
         </Viewport>
     );
 };

@@ -40,6 +40,10 @@ const InputBox = styled.input`
     align-items : center;
     height : 24px;
     border-radius : 12px;
+    &::placeholder {
+    text-align: center;
+    font-size : 12px;
+  }
 `;
 
 const MinorBox = styled.div`
@@ -102,7 +106,7 @@ const Identity = () => {
 
     useEffect(()=>{
         
-        if(InfoData.Dogname != '' && InfoData.Owner != '' && InfoData.HN != ''){
+        if(InfoData.Dogname != '' && InfoData.Owner != '' ){
             isDisablebutton(false)
         }
         else{
@@ -149,6 +153,7 @@ const Identity = () => {
                 <InputBox
                     type="text"
                     onChange={(e) => HNhandleInputChange(e.target.value)}
+                    placeholder="ใส่หรือไม่ใส่ก็ได้"
                     ></InputBox>
                 </div>
             </FormMinorContainer>
