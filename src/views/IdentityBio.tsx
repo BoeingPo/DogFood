@@ -287,7 +287,7 @@ const IdentityBio = () => {
                     <div>
                         <InputBox
                             type="text"
-                            onClick={() => isShowDropDownBCS(!ShowDropDownBCS)}
+                            onClick={() => {isShowDropDownBCS(!ShowDropDownBCS); isShowDropDownfactor(false);}}
                             value={TextBCS}
                         ></InputBox>
                         {ShowDropDownBCS && <div style={{ display: 'grid', position: 'absolute', gridTemplateColumns: '169.6px' }}>
@@ -344,7 +344,7 @@ const IdentityBio = () => {
                     <div>
                         <InputBox
                             type="text"
-                            onClick={() => isShowDropDownfactor(!ShowDropDownfactor)}
+                            onClick={() => {isShowDropDownfactor(!ShowDropDownfactor); isShowDropDownBCS(false);}}
                             value={TextFactor}
                         //onChange={(e) => BCShandleInputChange(e.target.value)}
                         ></InputBox>
