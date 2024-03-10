@@ -7,11 +7,9 @@ import corgipal from './Pictures/corgipal.jpg'
 
 const Viewport = styled.div`
     display : flex;
-    height : 100vh;
     //justify-content: center;
     align-items : center;
     flex-direction : column;
-    margin : 10px;
 `;
 
 const SubButton = styled.button`
@@ -24,7 +22,6 @@ const SubButton = styled.button`
     border-radius : 50px;
     background-color : #FFCC33;
     font-weight: 400;
-    margin-top: 10%;
     color : black;
 `;
 
@@ -35,11 +32,11 @@ const AppMain = () => {
     return (
         <Viewport>
             <div style={{position:'absolute'}}>
-                <img src={corgipal} alt="corgipal" width="100%" height="100%"/>
+                <img src={corgipal} alt="corgipal" width='100%'/>
             </div>
             <h1 style={{position:'relative', marginTop: 60, textAlign: "center", fontSize: 36 }}>Calculating the energy of dog food for good health Nutrient Program</h1>
             <h1 style={{position:'relative', marginTop: -20, textAlign: "center", fontSize: 15 }}>โปรแกรมคำนวณพลังงานอาหารเพื่อดูแลสุขภาพสุนัข</h1>
-            <SubButton style={{position:'relative',marginTop:313}}
+            <SubButton style={{position:'relative',marginTop:'14.5em'}}
                 onClick={() => { navigate('/Calculate') }}
             >Start</SubButton>
         </Viewport>
